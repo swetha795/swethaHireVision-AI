@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import api from "../utils/api";
 import { useAuth } from "../context/AuthContext";
-import Loader from "../components/Loader";
 
 const ROLES = ["Software Engineer", "Frontend Developer", "Backend Developer", "Data Analyst", "Full Stack Developer"];
 
