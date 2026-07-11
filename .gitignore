@@ -1,0 +1,11 @@
+node_modules/
+.env
+build/
+dist/
+__pycache__/
+*.pyc
+venv/
+ai-service/temp_uploads/
+backend/uploads/*
+!backend/uploads/.gitkeep
+.DS_Store

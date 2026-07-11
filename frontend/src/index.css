@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-studio-bg text-studio-text font-body;
+}
+
+/* Signature "on-air" recording dot used across the app during live capture */
+.on-air-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #ffb020;
+  box-shadow: 0 0 0 0 rgba(255, 176, 32, 0.6);
+  animation: pulse-signal 1.6s infinite;
+}
+
+@keyframes pulse-signal {
+  0% { box-shadow: 0 0 0 0 rgba(255, 176, 32, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 176, 32, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 176, 32, 0); }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #12131a; }
+::-webkit-scrollbar-thumb { background: #2a2d3a; border-radius: 4px; }
