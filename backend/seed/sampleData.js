@@ -45,4 +45,7 @@ const seedDB = async () => {
   }
 };
 
-seedDB();
+if (require.main === module) {
+  seedDB();
+}
+module.exports = { questions };
