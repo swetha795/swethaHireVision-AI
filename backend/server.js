@@ -10,6 +10,7 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const resumeRoutes = require("./routes/resumeRoutes");
 const interviewRoutes = require("./routes/interviewRoutes");
+const Question = require("./models/Question");
 
 const app = express();
 
@@ -29,6 +30,16 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/auth", authRoutes);
 app.use("/api/resume", resumeRoutes);
 app.use("/api/interview", interviewRoutes);
+app.get("/api/seed-questions", async (req, res) => {
+  try {
+    const questions = require("./seed/sampleData").questions || [];
+    await Question.deleteMany({});
+    await Question.insertMany(questions);
+    res.json({ success: true, message: "Seeded " + questions.length + " questions" });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
 
 // Health check route
 app.get("/api/health", (req, res) => {
