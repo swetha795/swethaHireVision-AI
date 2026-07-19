@@ -21,7 +21,7 @@ const uploadResume = async (req, res) => {
       const aiResponse = await axios.post(
         `${process.env.AI_SERVICE_URL}/analyze-resume`,
         form,
-        { headers: form.getHeaders(), timeout: 30000 }
+        { headers: form.getHeaders(), timeout: 90000 }
       );
       analysis = aiResponse.data;
     } catch (aiError) {
